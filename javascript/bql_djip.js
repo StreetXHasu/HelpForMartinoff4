@@ -1,0 +1,1 @@
+const msg_text = document.querySelector(".a-content").classList.add("aa");
