@@ -4,7 +4,7 @@
     $outgoing_id = $_SESSION['unique_id'];
     //need group by
 $sql = "SELECT
-	users.* 
+	*
 FROM
 	users
 	 LEFT JOIN messages ON users.unique_id = messages.incoming_msg_id 
@@ -12,7 +12,7 @@ WHERE NOT unique_id = '$outgoing_id'
 GROUP BY
 	user_id 
 ORDER BY
-	created_at DESC";
+	MAX(messages.created_at) DESC";
 
 
 try {
@@ -30,7 +30,7 @@ try {
   echo $err;
 }
 
-//    $sql = "SELECT * FROM users LEFT JOIN messages ON users.unique_id = messages.incoming_msg_id  WHERE NOT unique_id = {$outgoing_id} ORDER BY created_at DESC";
+//    $sql = "SELECT * FROM users LEFT JOIN messages ON users.unique_id = messages.incoming_msg_id   ORDER BY created_at DESC";
 
 
 ?>
