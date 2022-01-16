@@ -19,7 +19,7 @@ try {
   $query = mysqli_query($conn, $sql);
   $output = "";
   echo mysqli_error($conn);
-  echo $sql;
+//  echo $sql;
   if (mysqli_num_rows($query) == 0) {
     $output .= "Not enough registered users";
   } elseif (mysqli_num_rows($query) > 0) {
